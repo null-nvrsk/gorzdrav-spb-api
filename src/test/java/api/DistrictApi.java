@@ -3,31 +3,26 @@ package api;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
+import static specs.GeneralSpecs.requestSpec;
+import static specs.GeneralSpecs.response200Spec;
 
 public class DistrictApi {
 
     public Response getListOfHospitals(Integer districtId) {
-        return given()
-                .log().all()
-                .contentType(JSON)
+        return given(requestSpec)
                 .when()
                 .get("/shared/district/" + districtId + "/lpus")
                 .then()
-                .log().all()
-                .statusCode(200)
+                .spec(response200Spec)
                 .extract().response();
     }
 
     public Response getListOfDistricts() {
-        return given()
-                .log().all()
-                .contentType(JSON)
+        return given(requestSpec)
                 .when()
                 .get("/shared/districts")
                 .then()
-                .log().all()
-                .statusCode(200)
+                .spec(response200Spec)
                 .extract().response();
     }
 }

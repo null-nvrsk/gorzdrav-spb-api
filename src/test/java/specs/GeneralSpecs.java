@@ -15,22 +15,10 @@ public class GeneralSpecs {
             .filter(withCustomTemplates())
             .log().method()
             .log().uri()
-            .log().headers()
-            .log().body()
             .contentType(JSON);
 
     public static ResponseSpecification response200Spec = new ResponseSpecBuilder()
             .log(LogDetail.BODY)
             .expectStatusCode(200)
-            .build();
-
-    public static ResponseSpecification response201Spec = new ResponseSpecBuilder()
-            .log(LogDetail.BODY)
-            .expectStatusCode(201)
-            .build();
-
-    public static ResponseSpecification response204Spec = new ResponseSpecBuilder()
-            .log(LogDetail.STATUS)
-            .expectStatusCode(204)
             .build();
 }

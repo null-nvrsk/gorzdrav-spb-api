@@ -3,31 +3,26 @@ package api;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
+import static specs.GeneralSpecs.requestSpec;
+import static specs.GeneralSpecs.response200Spec;
 
 public class DoctorApi {
 
     public Response getTimetable(Integer hospitalId, String doctorId) {
-        return given()
-                .log().all()
-                .contentType(JSON)
+        return given(requestSpec)
                 .when()
                 .get("/schedule/lpu/" + hospitalId + "/doctor/" + doctorId + "/timetable")
                 .then()
-                .log().all()
-                .statusCode(200)
+                .spec(response200Spec)
                 .extract().response();
     }
 
     public Response getAppointments(Integer hospitalId, String doctorId) {
-        return given()
-                .log().all()
-                .contentType(JSON)
+        return given(requestSpec)
                 .when()
                 .get("/schedule/lpu/" + hospitalId + "/doctor/" + doctorId + "/appointments")
                 .then()
-                .log().all()
-                .statusCode(200)
+                .spec(response200Spec)
                 .extract().response();
     }
 }

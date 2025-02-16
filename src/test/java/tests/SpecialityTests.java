@@ -37,6 +37,5 @@ public class SpecialityTests extends TestBase {
         assertThat(doctorsList.getResult()).isNotEmpty();
         assertThat(doctorsList.getSuccess()).isTrue();
         assertThat(doctorsList.getErrorCode()).isEqualTo(0);
-
     }
 }

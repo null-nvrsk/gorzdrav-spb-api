@@ -2,8 +2,8 @@ package tests;
 
 import api.DoctorApi;
 import io.restassured.response.Response;
-import models.doctor.appointments.DoctorAppointmentsNotAvailableResponseModel;
-import models.doctor.appointments.DoctorAppointmentsResponseModel;
+import models.doctor.appointments.AppointmentsNotAvailableResponseModel;
+import models.doctor.appointments.AppointmentsResponseModel;
 import models.doctor.timetable.DoctorTimetableResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,7 +34,7 @@ public class DoctorTests extends TestBase {
     @DisplayName("Проверить доступные талоны")
     void successDoctorAppointmentsTest() {
         Response response = doctorApi.getAppointments(hospitalId, doctorId);
-        DoctorAppointmentsResponseModel doctorAppointments = response.as(DoctorAppointmentsResponseModel.class);
+        AppointmentsResponseModel doctorAppointments = response.as(AppointmentsResponseModel.class);
 
         assertThat(doctorAppointments.getResult()).isNotEmpty();
         assertThat(doctorAppointments.getSuccess()).isTrue();
@@ -45,10 +45,11 @@ public class DoctorTests extends TestBase {
     @DisplayName("Проверить врача, у которого нет свободных талонов")
     void doctorWithoutAppointmentsTest() {
         int errorCode = 39;
-        String errorMessage = "Отсутствуют свободные талоны. Попробуйте записаться позже или обратитесь в регистратуру медорганизации";
+        String errorMessage = "Отсутствуют свободные талоны. " +
+                "Попробуйте записаться позже или обратитесь в регистратуру медорганизации";
 
         Response response = doctorApi.getAppointments(hospitalId, busyDoctorId);
-        DoctorAppointmentsNotAvailableResponseModel doctorNoAppointments = response.as(DoctorAppointmentsNotAvailableResponseModel.class);
+        AppointmentsNotAvailableResponseModel doctorNoAppointments = response.as(AppointmentsNotAvailableResponseModel.class);
 
         assertThat(doctorNoAppointments.getSuccess()).isFalse();
         assertThat(doctorNoAppointments.getErrorCode()).isEqualTo(errorCode);

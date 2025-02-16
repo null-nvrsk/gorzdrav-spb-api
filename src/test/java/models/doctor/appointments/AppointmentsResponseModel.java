@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.ArrayList;
 
 @Data
-public class DoctorAppointmentsResponseModel {
+public class AppointmentsResponseModel {
     private ArrayList<Result> result;
     private Boolean success;
     private Integer errorCode;
