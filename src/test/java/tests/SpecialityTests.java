@@ -21,20 +21,22 @@ public class SpecialityTests extends TestBase {
     @DisplayName("Список специализаций в клинике")
     void listOfSpecialtiesTest() {
         Response response = specialityApi.getListOfSpecialties(hospitalId);
-        SpecialtyListResponseModel specialtyListResponseModel = response.as(SpecialtyListResponseModel.class);
+        SpecialtyListResponseModel specialtyList = response.as(SpecialtyListResponseModel.class);
 
-        assertThat(specialtyListResponseModel.getSuccess()).isTrue();
-        assertThat(specialtyListResponseModel.getErrorCode()).isEqualTo(0);
+        assertThat(specialtyList.getResult()).isNotEmpty();
+        assertThat(specialtyList.getSuccess()).isTrue();
+        assertThat(specialtyList.getErrorCode()).isEqualTo(0);
     }
 
     @Test
     @DisplayName("Список врачей одной специализации в клинике")
     void listOfDoctorsBySpecialtyTest() {
         Response response = specialityApi.getDoctorsBySpecialty(hospitalId, specialityId);
-        DoctorsListResponseModel doctorsListResponseModel = response.as(DoctorsListResponseModel.class);
+        DoctorsListResponseModel doctorsList = response.as(DoctorsListResponseModel.class);
 
-        assertThat(doctorsListResponseModel.getSuccess()).isTrue();
-        assertThat(doctorsListResponseModel.getErrorCode()).isEqualTo(0);
+        assertThat(doctorsList.getResult()).isNotEmpty();
+        assertThat(doctorsList.getSuccess()).isTrue();
+        assertThat(doctorsList.getErrorCode()).isEqualTo(0);
 
     }
 }

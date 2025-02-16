@@ -23,6 +23,7 @@ public class DistrictTests extends TestBase {
         Response response = districtApi.getListOfDistricts();
         DistrictListResponseModel districts = response.as(DistrictListResponseModel.class);
 
+        assertThat(districts.getResult()).isNotEmpty();
         assertThat(districts.getSuccess()).isTrue();
         assertThat(districts.getErrorCode()).isEqualTo(0);
     }
@@ -38,6 +39,7 @@ public class DistrictTests extends TestBase {
         Response response = districtApi.getListOfHospitals(districtId);
         DistrictResponseModel district = response.as(DistrictResponseModel.class);
 
+        assertThat(district.getResult()).isNotEmpty();
         assertThat(district.getSuccess()).isTrue();
         assertThat(district.getErrorCode()).isEqualTo(0);
 
