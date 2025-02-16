@@ -1,0 +1,98 @@
+{
+  "result": [
+    {
+      "id": "988",
+      "ferId": "27",
+      "name": "Диспансеризация",
+      "countFreeParticipant": 731,
+      "countFreeTicket": 731,
+      "lastDate": "2025-03-18T00:00:00",
+      "nearestDate": "2025-02-17T00:00:00"
+    },
+    {
+      "id": "4",
+      "ferId": "27",
+      "name": "Терапевт участковый",
+      "countFreeParticipant": 1207,
+      "countFreeTicket": 1207,
+      "lastDate": "2025-02-28T00:00:00",
+      "nearestDate": "2025-02-17T00:00:00"
+    },
+    {
+      "id": "28",
+      "ferId": "145",
+      "name": "Уролог",
+      "countFreeParticipant": 51,
+      "countFreeTicket": 51,
+      "lastDate": "2025-02-28T00:00:00",
+      "nearestDate": "2025-02-24T00:00:00"
+    },
+    {
+      "id": "35",
+      "ferId": "8",
+      "name": "Акушер-гинеколог",
+      "countFreeParticipant": 0,
+      "countFreeTicket": 0,
+      "lastDate": null,
+      "nearestDate": null
+    },
+    {
+      "id": "50",
+      "ferId": "10",
+      "name": "Дерматолог",
+      "countFreeParticipant": 0,
+      "countFreeTicket": 0,
+      "lastDate": null,
+      "nearestDate": null
+    },
+    {
+      "id": "896",
+      "ferId": "0",
+      "name": "Кабинет медико-психологического консультирования",
+      "countFreeParticipant": 0,
+      "countFreeTicket": 0,
+      "lastDate": null,
+      "nearestDate": null
+    },
+    {
+      "id": "42",
+      "ferId": "19",
+      "name": "Отоларинголог",
+      "countFreeParticipant": 0,
+      "countFreeTicket": 0,
+      "lastDate": null,
+      "nearestDate": null
+    },
+    {
+      "id": "41",
+      "ferId": "20",
+      "name": "Офтальмолог",
+      "countFreeParticipant": 0,
+      "countFreeTicket": 0,
+      "lastDate": null,
+      "nearestDate": null
+    },
+    {
+      "id": "9",
+      "ferId": "91",
+      "name": "Ревматолог",
+      "countFreeParticipant": 0,
+      "countFreeTicket": 0,
+      "lastDate": null,
+      "nearestDate": null
+    },
+    {
+      "id": "23",
+      "ferId": "30",
+      "name": "Хирург",
+      "countFreeParticipant": 0,
+      "countFreeTicket": 0,
+      "lastDate": null,
+      "nearestDate": null
+    }
+  ],
+  "success": true,
+  "errorCode": 0,
+  "message": null,
+  "stackTrace": null
+}

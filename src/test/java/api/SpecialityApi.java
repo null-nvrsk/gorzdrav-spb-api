@@ -5,29 +5,32 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 
-public class DistrictApi {
+public class SpecialityApi {
 
-    public Response getListOfHospitals(Integer districtId) {
+    public Response getListOfSpecialties(Integer hospitalId) {
         return given()
                 .log().all()
                 .contentType(JSON)
                 .when()
-                .get("/shared/district/" + districtId + "/lpus")
+                .get("schedule/lpu/" + hospitalId + "/specialties")
                 .then()
                 .log().all()
                 .statusCode(200)
                 .extract().response();
     }
 
-    public Response getListOfDistricts() {
+    public Response getDoctorsBySpecialty(Integer hospitalId, Integer specialtyId) {
         return given()
                 .log().all()
                 .contentType(JSON)
                 .when()
-                .get("/shared/districts")
+                .get("schedule/lpu/" + hospitalId + "/speciality/" + specialtyId + "/doctors")
                 .then()
                 .log().all()
                 .statusCode(200)
                 .extract().response();
     }
+
+
+
 }

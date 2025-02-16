@@ -1,4 +1,4 @@
-package models.district;
+package models.district.single;
 
 import lombok.Data;
 

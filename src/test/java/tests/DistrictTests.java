@@ -2,8 +2,10 @@ package tests;
 
 import api.DistrictApi;
 import io.restassured.response.Response;
-import models.district.DistrictResponseModel;
+import models.district.list.DistrictListResponseModel;
+import models.district.single.DistrictResponseModel;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -14,6 +16,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DistrictTests extends TestBase {
 
     private final DistrictApi districtApi = new DistrictApi();
+
+    @Test
+    @DisplayName("Получить список районов")
+    void listOfDistrictsTest() {
+        Response response = districtApi.getListOfDistricts();
+        DistrictListResponseModel districts = response.as(DistrictListResponseModel.class);
+
+        assertThat(districts.getSuccess()).isTrue();
+        assertThat(districts.getErrorCode()).isEqualTo(0);
+    }
 
     @DisplayName("Получить список лечебных заведений")
     @CsvSource({
