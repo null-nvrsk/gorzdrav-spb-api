@@ -26,4 +26,5 @@ public class Result {
     private String latitude;
     private Boolean covidVaccination;
     private Boolean inDepthExamination;
+    private Object subdivision;
 }

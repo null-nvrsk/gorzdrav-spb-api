@@ -45,11 +45,12 @@ public class DoctorTests extends TestBase {
     @DisplayName("Проверить врача, у которого нет свободных талонов")
     void doctorWithoutAppointmentsTest() {
         int errorCode = 39;
-        String errorMessage = "Отсутствуют свободные талоны. " +
-                "Попробуйте записаться позже или обратитесь в регистратуру медорганизации";
+        String errorMessage = "В медицинской организации закончились свободные талоны для записи к выбранному врачу. " +
+                "Попробуйте записаться позже или обратитесь в регистратуру медицинской организации";
 
         Response response = doctorApi.getAppointments(hospitalId, busyDoctorId);
-        AppointmentsNotAvailableResponseModel doctorNoAppointments = response.as(AppointmentsNotAvailableResponseModel.class);
+        AppointmentsNotAvailableResponseModel doctorNoAppointments =
+                response.as(AppointmentsNotAvailableResponseModel.class);
 
         assertThat(doctorNoAppointments.getSuccess()).isFalse();
         assertThat(doctorNoAppointments.getErrorCode()).isEqualTo(errorCode);
